@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,9 +16,45 @@ import { HeroMeshBackground } from "@/components/HeroMeshBackground";
 import { Tilt } from "@/components/Tilt";
 import { CTASection } from "@/components/CTASection";
 import { SectionMeshBackdrop } from "@/components/SectionMeshBackdrop";
-import { useState, useEffect } from "react";
 import { Star, MessageSquareQuote } from "lucide-react";
 import { ProjectFeedback } from "@/lib/types";
+
+function AnimatedCounter({ value, suffix }: { value: number; suffix?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000;
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.round(current));
+        }
+      }, duration / steps);
+      return () => clearInterval(timer);
+    }
+  }, [isInView, value]);
+
+  return (
+    <motion.span
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.2 }}
+    >
+      {count}
+      {suffix}
+    </motion.span>
+  );
+}
 
 export default function Home() {
   const [feedbacks, setFeedbacks] = useState<ProjectFeedback[]>([]);
@@ -62,10 +99,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Delivered" },
-    { number: "200+", label: "Happy Clients" },
-    { number: "50+", label: "Team Members" },
-    { number: "15+", label: "Years Experience" },
+    { value: 500, suffix: "+", label: "Projects Delivered" },
+    { value: 200, suffix: "+", label: "Happy Clients" },
+    { value: 50, suffix: "+", label: "Team Members" },
+    { value: 15, suffix: "+", label: "Years Experience" },
   ];
 
   const features = [
@@ -152,19 +189,15 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
                 <div className="text-4xl md:text-5xl font-bold text-[#e8272c] mb-2">
-                  {stat.number}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
