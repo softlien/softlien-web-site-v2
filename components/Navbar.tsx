@@ -35,7 +35,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
@@ -97,36 +97,45 @@ export function Navbar() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t overflow-hidden"
-          >
-            <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed top-20 inset-x-0 bottom-0 bg-black/30 backdrop-blur-sm md:hidden z-[55]"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="relative z-[55] md:hidden bg-white border-t overflow-hidden"
+            >
+              <div className="px-4 py-4 space-y-3">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                      pathname === link.path
+                        ? "bg-red-50 text-[#e8272c]"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link
-                  key={link.path}
-                  href={link.path}
+                  href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg transition-colors ${
-                    pathname === link.path
-                      ? "bg-red-50 text-[#e8272c]"
-                      : "text-gray-700 hover:bg-gray-50"
-                  }`}
+                  className="block px-4 py-3 bg-[#e8272c] text-white rounded-lg text-center hover:bg-[#d01f24]"
                 >
-                  {link.label}
+                  Get Started
                 </Link>
-              ))}
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 bg-[#e8272c] text-white rounded-lg text-center hover:bg-[#d01f24]"
-              >
-                Get Started
-              </Link>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
