@@ -5,7 +5,6 @@ import { useState } from "react";
 import { ExternalLink, Calendar, Tag, MessageSquareHeart } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { Tilt } from "@/components/Tilt";
-import Link from "next/link";
 import { ProjectFeedbackModal } from "@/components/ProjectFeedbackModal";
 import { CTASection } from "@/components/CTASection";
 
@@ -158,11 +157,10 @@ export default function Projects() {
                 key={category}
                 type="button"
                 onClick={() => setFilter(category)}
-                className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-                  filter === category
+                className={`px-6 py-2.5 rounded-full font-medium transition-all ${filter === category
                     ? "bg-[#e8272c] text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -231,7 +229,7 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    
+
                     <div className="mt-auto border-t border-gray-100 pt-4">
                       <button
                         onClick={() => setSelectedProjectForFeedback(project.title)}
