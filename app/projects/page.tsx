@@ -7,6 +7,7 @@ import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { Tilt } from "@/components/Tilt";
 import Link from "next/link";
 import { ProjectFeedbackModal } from "@/components/ProjectFeedbackModal";
+import { CTASection } from "@/components/CTASection";
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
@@ -297,29 +298,11 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-gray-200 mb-8">
-              Let&apos;s create something amazing together
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-[#e8272c] rounded-full font-semibold hover:shadow-2xl transition-all transform hover:scale-105"
-            >
-              Get In Touch
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection
+        headline="Ready to Start Your Project?"
+        description="Let's create something amazing together"
+        ctaText="Get In Touch"
+      />
 
       <ProjectFeedbackModal
         isOpen={!!selectedProjectForFeedback}
