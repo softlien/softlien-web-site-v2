@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import Link from "next/link";
+// import Link from "next/link";
 import {
   Target,
   Eye,
   Users,
   TrendingUp,
   Heart,
-  ArrowRight,
+  //ArrowRight,
 } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { CTASection } from "@/components/CTASection";
@@ -41,32 +41,32 @@ export default function About() {
     },
   ];
 
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO & Founder",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Michael Chen",
-      role: "CTO",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Head of Design",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-    },
-    {
-      name: "David Park",
-      role: "Lead Developer",
-      image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
-    },
-  ];
+  // const team = [
+  //   {
+  //     name: "Sarah Johnson",
+  //     role: "CEO & Founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "Michael Chen",
+  //     role: "CTO",
+  //     image:
+  //       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "Emily Rodriguez",
+  //     role: "Head of Design",
+  //     image:
+  //       "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "David Park",
+  //     role: "Lead Developer",
+  //     image:
+  //       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+  //   },
+  // ];
 
   const achievements = [
     { number: "500+", label: "Projects Completed" },

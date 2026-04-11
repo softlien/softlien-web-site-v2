@@ -13,9 +13,9 @@ import {
   Shield,
   ArrowRight,
   CheckCircle,
-  Boxes,
-  Server,
-  Workflow,
+  //Boxes,
+  //Server,
+  //Workflow,
 } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { CTASection } from "@/components/CTASection";

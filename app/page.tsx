@@ -339,7 +339,7 @@ export default function Home() {
               >
                 Projects
               </Link>{" "}
-              page; only published testimonials appear here.
+              page, only published testimonials appear here.
             </p>
           </motion.div>
 

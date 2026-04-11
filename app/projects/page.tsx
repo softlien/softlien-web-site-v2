@@ -2,15 +2,15 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { ExternalLink, Calendar, Tag, MessageSquareHeart } from "lucide-react";
+import { ExternalLink, Calendar, Tag } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { Tilt } from "@/components/Tilt";
-import { ProjectFeedbackModal } from "@/components/ProjectFeedbackModal";
+//import { ProjectFeedbackModal } from "@/components/ProjectFeedbackModal";
 import { CTASection } from "@/components/CTASection";
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
-  const [selectedProjectForFeedback, setSelectedProjectForFeedback] = useState<string | null>(null);
+  // const [selectedProjectForFeedback, setSelectedProjectForFeedback] = useState<string | null>(null);
 
   const categories = [
     "All",
@@ -158,8 +158,8 @@ export default function Projects() {
                 type="button"
                 onClick={() => setFilter(category)}
                 className={`px-6 py-2.5 rounded-full font-medium transition-all ${filter === category
-                    ? "bg-[#e8272c] text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+                  ? "bg-[#e8272c] text-white shadow-lg"
+                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
                   }`}
               >
                 {category}
@@ -230,7 +230,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="mt-auto border-t border-gray-100 pt-4">
+                    {/* <div className="mt-auto border-t border-gray-100 pt-4">
                       <button
                         onClick={() => setSelectedProjectForFeedback(project.title)}
                         className="w-full flex items-center justify-center py-2.5 px-4 rounded-lg bg-red-50 text-[#e8272c] hover:bg-[#e8272c] hover:text-white transition-colors font-medium text-sm"
@@ -238,7 +238,7 @@ export default function Projects() {
                         <MessageSquareHeart size={16} className="mr-2" />
                         Leave Feedback
                       </button>
-                    </div>
+                    </div>  */}
                   </div>
                 </Tilt>
               </motion.div>
@@ -302,11 +302,11 @@ export default function Projects() {
         ctaText="Get In Touch"
       />
 
-      <ProjectFeedbackModal
+      {/* <ProjectFeedbackModal
         isOpen={!!selectedProjectForFeedback}
         onClose={() => setSelectedProjectForFeedback(null)}
         projectTitle={selectedProjectForFeedback || ""}
-      />
+      /> */}
     </div>
   );
 }
