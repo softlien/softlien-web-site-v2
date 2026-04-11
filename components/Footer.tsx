@@ -31,13 +31,13 @@ export function Footer() {
               partner in software development.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              <a href="https://www.facebook.com/share/1G7fEWASAf/" className="hover:text-[#e8272c] transition-colors">
                 <Facebook size={20} />
               </a>
               <a href="#" className="hover:text-[#e8272c] transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              <a href="https://www.linkedin.com/company/softlienitsolutions/" className="hover:text-[#e8272c] transition-colors">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="hover:text-[#e8272c] transition-colors">
@@ -79,12 +79,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   href="/admin"
                   className="hover:text-[#e8272c] transition-colors text-gray-400"
                 >
                   Admin
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>
@@ -106,12 +106,12 @@ export function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  123 Tech Street, Silicon Valley, CA 94025
+                  Matara, Sri Lanka
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+94 7043477347<br></br>+94 715705123</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="flex-shrink-0" />
