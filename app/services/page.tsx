@@ -142,9 +142,8 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
               >
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="w-20 h-20 bg-[#e8272c] rounded-2xl flex items-center justify-center text-white mb-6">
@@ -250,58 +249,62 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
             {[
               {
+                name: "Laravel",
+                image: "/TechStack/laravel-original.svg",
+              },
+              {
+                name: "Django",
+                image: "/TechStack/django-plain.svg",
+              },
+              {
                 name: "React",
-                icon: <Code size={40} />,
-                color: "from-cyan-400 to-blue-500",
+                image: "/TechStack/react-original.svg",
+              },
+              {
+                name: "Next.js",
+                image: "/TechStack/nextjs-original.svg",
+              },
+              {
+                name: "Vue.js",
+                image: "/TechStack/vuejs-original.svg",
               },
               {
                 name: "Node.js",
-                icon: <Server size={40} />,
-                color: "from-green-500 to-green-600",
+                image: "/TechStack/nodejs-original.svg",
               },
               {
-                name: "Cloud",
-                icon: <Cloud size={40} />,
-                color: "from-blue-500 to-cyan-500",
+                name: "Spring Boot",
+                image: "/TechStack/spring-original.svg",
               },
               {
-                name: "Database",
-                icon: <Database size={40} />,
-                color: "from-orange-400 to-blue-600",
+                name: "FastAPI",
+                image: "/TechStack/fastapi-original.svg",
               },
               {
-                name: "Mobile",
-                icon: <Smartphone size={40} />,
-                color: "from-purple-600 to-pink-600",
-              },
-              {
-                name: "Docker",
-                icon: <Boxes size={40} />,
-                color: "from-blue-500 to-blue-700",
-              },
-              {
-                name: "DevOps",
-                icon: <Workflow size={40} />,
-                color: "from-orange-600 to-red-600",
-              },
+                name: "Flask",
+                image: "/TechStack/flask-original.svg",
+              }
             ].map((tech, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100"
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
+                className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(232,39,44,0.15)] transition-all flex flex-col items-center justify-center border border-gray-50 group min-w-[160px] md:min-w-[180px]"
               >
-                <div
-                  className={`w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-white`}
-                >
-                  {tech.icon}
+                <div className="w-14 h-14 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src={tech.image}
+                    alt={`${tech.name} logo`}
+                    className="max-w-full max-h-full object-contain drop-shadow-sm"
+                  />
                 </div>
-                <p className="text-center font-bold text-gray-900 text-lg">
+                <p className="text-center font-bold text-gray-800 text-base group-hover:text-[#e8272c] transition-colors">
                   {tech.name}
                 </p>
               </motion.div>
