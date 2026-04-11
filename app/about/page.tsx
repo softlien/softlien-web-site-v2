@@ -69,12 +69,11 @@ export default function About() {
   // ];
 
   const achievements = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "200+", label: "Happy Clients" },
-    { number: "50+", label: "Team Members" },
-    { number: "15+", label: "Years Experience" },
-    { number: "25+", label: "Industry Awards" },
-    { number: "98%", label: "Client Satisfaction" },
+    { number: "30+", label: "Projects Completed" },
+    { number: "15+", label: "Happy Clients" },
+    { number: "6+", label: "Team Members" },
+    { number: "3+", label: "Years Experience" },
+    { number: "100%", label: "Client Satisfaction" },
   ];
 
   return (
@@ -88,7 +87,7 @@ export default function About() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About Softlien
+              About SoftLien
             </h1>
             <p className="text-xl text-gray-200">
               Empowering businesses through innovative software solutions since
@@ -111,7 +110,7 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-4">
-                Founded in 2011, Softlien began with a simple mission: to help
+                Founded in 2011, SoftLien began with a simple mission: to help
                 businesses leverage technology to achieve their goals. What
                 started as a small team of passionate developers has grown into
                 a full-service software development company.

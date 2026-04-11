@@ -7,7 +7,7 @@ import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { Tilt } from "@/components/Tilt";
 //import { ProjectFeedbackModal } from "@/components/ProjectFeedbackModal";
 import { CTASection } from "@/components/CTASection";
-import { access } from "fs";
+
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
@@ -16,7 +16,6 @@ export default function Projects() {
   const categories = [
     "All",
     "Web Development",
-    "Mobile App",
     "E-commerce",
     "Cloud Solutions",
     "UI/UX Design",
@@ -31,8 +30,8 @@ export default function Projects() {
         "ScanBite revolutionizes the way customers interact with restaurants. By simply scanning a QR code at their table, guests can instantly view a high-quality, real-time digital menu on their own devices. This eliminates the need for physical menus, reduces contact, and allows for instant price or item updates. Designed for speed and responsiveness, it ensures a seamless browsing experience that helps restaurants showcase their offerings elegantly.",
       image:
         "https://images.unsplash.com/photo-1694599048261-a1de00f0117e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc3MTMwMDA4OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      date: "April 2026",
+      //tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      //date: "April 2026",
       //link: "#",
     },
     {
@@ -43,21 +42,21 @@ export default function Projects() {
         "AutoCare is a specialized management solution built to handle the complexities of automotive service centers. The system tracks the entire lifecycle of a vehicle’s visit—from initial booking and job card creation to parts allocation and final invoicing. It features service history tracking, automated maintenance reminders for customers, and technician assignment tools, ensuring that workshops operate at peak efficiency while maintaining high standards of customer service.",
       image:
         "https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMGFwcHxlbnwxfHx8fDE3NzEzMDk2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      date: "April 2026",
-      link: "#",
+      // tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      // date: "April 2026",
+      // link: "#",
     },
     {
       title: "PeopleSync: HR Management System",
-      category: "E-commerce",
+      category: "Cloud Solutions",
       subtitle: "Centralized Human Capital & Workforce Coordination",
       description:
         "PeopleSync provides a robust framework for managing a modern workforce. This system simplifies core HR functions by centralizing employee records, attendance tracking, and leave management in one secure location. It includes modules for payroll processing, performance evaluations, and employee onboarding. With role-based access control, HR professionals can manage sensitive data securely while providing employees with self-service portals to view their own documents and request time off.",
       image:
         "https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMGFwcHxlbnwxfHx8fDE3NzEzMDk2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      date: "April 2026",
-      link: "#",
+      // tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      // date: "April 2026",
+      // link: "#",
     },
     {
       title: "Restaurant Management",
@@ -67,9 +66,9 @@ export default function Projects() {
         "DineTrack is a comprehensive restaurant management system designed to streamline operations. Key features include Order Management, Cashflow Management, and Table Management to optimize seating and reduce wait times. Order Processing & Kitchen Coordination ensures smooth communication between kitchen staff and service teams. Role-specific Dashboards for Cashiers, Admins, Kitchen, and Bar improve efficiency. Additional functionalities like Inventory Management, Staff Scheduling, and Customer Feedback further enhance workflow, allowing you to provide exceptional service while staying organized and efficient.",
       image:
         "https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMGFwcHxlbnwxfHx8fDE3NzEzMDk2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      //date: "April 2026",
-      link: "#",
+      // tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      // date: "April 2026",
+      // link: "#",
     },
     {
       title: "CloudPOS: Online Point of Sale System",
@@ -79,20 +78,20 @@ export default function Projects() {
         "CloudPOS is a high-performance, web-based point of sale solution designed for modern retail and service businesses. It provides a seamless checkout experience with real-time synchronization between sales, inventory, and accounting. Built to operate entirely in the cloud, it allows business owners to monitor transactions and manage multiple branch locations from anywhere in the world. With features like offline mode support, integrated payment processing, and detailed sales analytics, CloudPOS empowers businesses to scale rapidly while maintaining total control over their daily operations.",
       image:
         "https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMGFwcHxlbnwxfHx8fDE3NzEzMDk2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      //date: "April 2026",
-      link: "#",
+      // tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      // date: "April 2026",
+      // link: "#",
     },
     {
       title: "TutorPulse Student Management System",
-      category: "Web Development",
+      category: "Cloud Solutions",
       subtitle: "Effortless Educational Administration & Learning Coordination",
       description: "TutorPulse helps you manage tuition classes effortlessly. It allows you to organize students by class, track attendance, and handle class fees with ease. You can upload and share study materials, such as tutorials and homework, and manage exams smoothly. With role-based Dashboards for Admins, Teachers, Students, and Parents, everyone has access to the information they need. TutorPulse makes running a tuition class simple and efficient, improving communication and student management.",
       image:
         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwcHJvcGVydHl8ZW58MXx8fHwxNzcxMzIxOTM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Vue.js", "Laravel", "MySQL", "Mapbox"],
-      //date: "August 2025",
-      link: "#",
+      // tags: ["React", "Next.js", "Firebase"],
+      // date: "August 2025",
+      // link: "#",
     },
     {
       title: "Stockly inventory management system",
@@ -101,32 +100,32 @@ export default function Projects() {
       description: "Stockly is an intuitive inventory management system that helps businesses effortlessly track, organize, and manage their stock. With real-time updates, low stock alerts, and easy order management, Stockly ensures your inventory stays accurate and well-organized. Whether you’re handling a single warehouse or multiple locations, this system simplifies your operations, saving time and reducing errors for smoother business management.",
       image:
         "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzcxMzA0NjEyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["AWS", "Docker", "Kubernetes", "Terraform"],
-      //date: "July 2025",
-      link: "#",
+      // tags: ["React", "Express", "PostgreSQL"],
+      // date: "July 2025",
+      // link: "#",
     },
     {
       title: "Helpdesk & Live Chat Support System",
-      category: "UI/UX Design",
+      category: "Web Apps",
       subtitle: "Centralized Customer Support & Inquiry Management",
       description: "SupportDesk is a customer support solution designed for businesses to manage tickets, live chats, and inquiries efficiently. It includes automated ticket assignment, multi-channel support (email, chat, and social media), and real-time analytics. With seamless CRM integration, SupportDesk helps businesses improve response times and enhance customer service.",
       image:
         "https://images.unsplash.com/photo-1765561667528-28e39c6174dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NzEyNTIwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Figma", "Adobe XD", "Prototyping", "User Testing"],
-      //date: "June 2025",
-      link: "#",
+      // tags: ["React", "Socket.io", "Redis"],
+      // date: "June 2025",
+      // link: "#",
     },
-    {
-      title: "Library management system",
-      category: "E-commerce",
-      subtitle: "Efficient Cataloging & Circulation Management",
-      description: "LibMaster is a simple and efficient library management system designed to streamline library operations. It allows you to easily catalog books, manage member details, and track book borrowings and returns. With features like search and filter options, overdue fee management, and a reservation system, LibMaster helps keep your library organized and ensures smooth, hassle-free operations for both staff and members.",
-      image:
-        "https://images.unsplash.com/photo-1603985585179-3d71c35a537c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzcxMjg5NzA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Angular", ".NET", "SQL Server", "Azure"],
-      //date: "May 2025",
-      link: "#",
-    },
+    // {
+    //   title: "Library management system",
+    //   category: "Web Apps",
+    //   subtitle: "Efficient Cataloging & Circulation Management",
+    //   description: "LibMaster is a simple and efficient library management system designed to streamline library operations. It allows you to easily catalog books, manage member details, and track book borrowings and returns. With features like search and filter options, overdue fee management, and a reservation system, LibMaster helps keep your library organized and ensures smooth, hassle-free operations for both staff and members.",
+    //   image:
+    //     "https://images.unsplash.com/photo-1603985585179-3d71c35a537c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzcxMjg5NzA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    //   // tags: ["React", "Node.js", "MongoDB"],
+    //   // date: "May 2025",
+    //   // link: "#",
+    // },
     {
       title: "SwiftFleet - car rent management system",
       category: "E-commerce",
@@ -134,9 +133,9 @@ export default function Projects() {
       description: "Effortlessly manage your car rental business with SwiftFleet, a complete solution designed to handle bookings, vehicle tracking, client management, and payments. With real-time fleet monitoring, detailed reports, and automated workflows, SwiftFleet ensures your business runs smoothly while enhancing customer satisfaction.",
       image:
         "https://images.unsplash.com/photo-1603985585179-3d71c35a537c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzcxMjg5NzA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Angular", ".NET", "SQL Server", "Azure"],
-      //date: "May 2025",
-      link: "#",
+      tags: [],
+      date: "",
+      link: "",
     },
   ];
 
@@ -236,7 +235,7 @@ export default function Projects() {
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, idx) => (
+                      {project.tags?.map((tag: string, idx: number) => (
                         <span
                           key={idx}
                           className="flex items-center text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
@@ -290,10 +289,10 @@ export default function Projects() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: "500+", label: "Projects Completed" },
-              { number: "98%", label: "Client Satisfaction" },
-              { number: "2M+", label: "Users Reached" },
-              { number: "50+", label: "Industries Served" },
+              { number: "30+", label: "Projects Completed" },
+              { number: "100%", label: "Client Satisfaction" },
+              { number: "10k+", label: "Users Reached" },
+              { number: "5+", label: "Industries Served" },
             ].map((stat, index) => (
               <motion.div
                 key={index}

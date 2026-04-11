@@ -34,15 +34,15 @@ export function Footer() {
               <a href="https://www.facebook.com/share/1G7fEWASAf/" className="hover:text-[#e8272c] transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              {/* <a href="#" className="hover:text-[#e8272c] transition-colors">
                 <Twitter size={20} />
-              </a>
+              </a> */}
               <a href="https://www.linkedin.com/company/softlienitsolutions/" className="hover:text-[#e8272c] transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              {/* <a href="#" className="hover:text-[#e8272c] transition-colors">
                 <Instagram size={20} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -72,19 +72,19 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/careers"
                   className="hover:text-[#e8272c] transition-colors"
                 >
-                  Contact
+                  Careers
                 </Link>
               </li>
               <li>
-                {/* <Link
-                  href="/admin"
+                <Link
+                  href="/contact"
                   className="hover:text-[#e8272c] transition-colors text-gray-400"
                 >
-                  Admin
-                </Link> */}
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -109,13 +109,16 @@ export function Footer() {
                   Matara, Sri Lanka
                 </span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-start space-x-3">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+94 7043477347<br></br>+94 715705123</span>
+                <div className="flex flex-col space-y-1">
+                  <a href="tel:+947043477347" className="text-sm hover:text-[#e8272c] transition-colors">+94 7043477347</a>
+                  <a href="tel:+94715705123" className="text-sm hover:text-[#e8272c] transition-colors">+94 715705123</a>
+                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="flex-shrink-0" />
-                <span className="text-sm">info@softlien.com</span>
+                <a href="mailto:info@softlien.com" className="text-sm hover:text-[#e8272c] transition-colors">info@softlien.com</a>
               </li>
             </ul>
           </div>

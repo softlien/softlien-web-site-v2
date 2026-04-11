@@ -6,6 +6,7 @@ import {
   type Firestore,
   type DocumentData,
 } from "firebase/firestore";
+import { getStorage, type FirebaseStorage } from "firebase/storage";
 import type { ContactMessage, ProjectFeedback } from "@/lib/types";
 
 export const COLLECTIONS = {
@@ -45,6 +46,14 @@ export async function getFirebaseAnalytics(): Promise<Analytics | null> {
     analyticsInstance = getAnalytics(getFirebaseApp());
   }
   return analyticsInstance;
+}
+
+let storageInstance: FirebaseStorage | null = null;
+export function getFirebaseStorage(): FirebaseStorage {
+  if (!storageInstance) {
+    storageInstance = getStorage(getFirebaseApp());
+  }
+  return storageInstance;
 }
 
 export function timestampToDate(value: unknown): Date {

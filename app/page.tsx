@@ -99,10 +99,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: 500, suffix: "+", label: "Projects Delivered" },
-    { value: 200, suffix: "+", label: "Happy Clients" },
-    { value: 50, suffix: "+", label: "Team Members" },
-    { value: 15, suffix: "+", label: "Years Experience" },
+    { value: 30, suffix: "+", label: "Projects Delivered" },
+    { value: 15, suffix: "+", label: "Happy Clients" },
+    { value: 6, suffix: "+", label: "Team Members" },
+    { value: 3, suffix: "+", label: "Years Experience" },
   ];
 
   const features = [
@@ -172,8 +172,10 @@ export default function Home() {
               <Tilt className="relative">
                 <div className="absolute -inset-4 bg-[#e8272c] rounded-2xl blur-2xl opacity-30" />
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1765561667528-28e39c6174dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NzEyNTIwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/Hero/hero.jpg"
                   alt="Software development"
+                  width={1080}
+                  height={720}
                   className="relative rounded-2xl shadow-2xl"
                 />
               </Tilt>
