@@ -12,7 +12,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
-import { HeroMeshBackground } from "@/components/HeroMeshBackground";
+import { TechParticles } from "@/components/TechParticles";
 import { Tilt } from "@/components/Tilt";
 import { CTASection } from "@/components/CTASection";
 import { SectionMeshBackdrop } from "@/components/SectionMeshBackdrop";
@@ -117,17 +117,9 @@ export default function Home() {
   return (
     <div className="bg-white">
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c]">
-          <div className="absolute inset-0 opacity-20">
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc3MTIzODYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Technology background"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000] via-[#7a0000] to-[#e8272c]" />
 
-        <HeroMeshBackground className="absolute inset-0 pointer-events-none opacity-70 hidden md:block" />
+        <TechParticles className="absolute inset-0 opacity-60 hidden md:block" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -156,7 +148,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white rounded-full border-2 border-white/20 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-3 border-white hover:bg-white/20 transition-all"
                 >
                   Our Services
                 </Link>
