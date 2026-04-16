@@ -16,8 +16,8 @@ export function Footer() {
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
               <Image
                 src={logoWhite}
                 alt="Softlien Logo"
@@ -30,25 +30,25 @@ export function Footer() {
               Transforming ideas into powerful digital solutions. Your trusted
               partner in software development.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+            <div className="flex space-x-4 justify-center md:justify-start">
+              <a href="https://www.facebook.com/share/1G7fEWASAf/" className="hover:text-[#e8272c] transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              {/* <a href="#" className="hover:text-[#e8272c] transition-colors">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              </a> */}
+              <a href="https://www.linkedin.com/company/softlienitsolutions/" className="hover:text-[#e8272c] transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="hover:text-[#e8272c] transition-colors">
+              {/* <a href="#" className="hover:text-[#e8272c] transition-colors">
                 <Instagram size={20} />
-              </a>
+              </a> */}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-white font-semibold mb-4 text-center md:text-left">Quick Links</h3>
+            <ul className="space-y-2 text-center md:text-left">
               <li>
                 <Link href="/" className="hover:text-[#e8272c] transition-colors">
                   Home
@@ -72,26 +72,26 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/careers"
                   className="hover:text-[#e8272c] transition-colors"
                 >
-                  Contact
+                  Careers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/admin"
+                  href="/contact"
                   className="hover:text-[#e8272c] transition-colors text-gray-400"
                 >
-                  Admin
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-white font-semibold mb-4 text-center md:text-left">Services</h3>
+            <ul className="space-y-2 text-center md:text-left">
               <li>Web Development</li>
               <li>Mobile Apps</li>
               <li>Cloud Solutions</li>
@@ -100,22 +100,25 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-white font-semibold mb-4 text-center md:text-left">Contact Us</h3>
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
+              <li className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  123 Tech Street, Silicon Valley, CA 94025
+                  Matara, Sri Lanka
                 </span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-start justify-center md:justify-start space-x-3">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <div className="flex flex-col space-y-1">
+                  <a href="tel:+947043477347" className="text-sm hover:text-[#e8272c] transition-colors">+94 7043477347</a>
+                  <a href="tel:+94715705123" className="text-sm hover:text-[#e8272c] transition-colors">+94 715705123</a>
+                </div>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail size={18} className="flex-shrink-0" />
-                <span className="text-sm">info@softlien.com</span>
+                <a href="mailto:info@softlien.com" className="text-sm hover:text-[#e8272c] transition-colors">info@softlien.com</a>
               </li>
             </ul>
           </div>

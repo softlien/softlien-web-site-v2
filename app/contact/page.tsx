@@ -63,17 +63,17 @@ export default function Contact() {
     {
       icon: <Phone size={24} />,
       title: "Phone",
-      details: ["+94 77 123 2323", "+94 76 322 3190"],
+      details: ["+94 7043477347", "+94 715705123"],
     },
     {
       icon: <Mail size={24} />,
       title: "Email",
-      details: ["info@softlien.com", "support@softlien.com"],
+      details: ["info@softlien.com"],
     },
     {
       icon: <MapPin size={24} />,
       title: "Office",
-      details: ["28/A/7", "Galle Road Matara"],
+      details: ["Matara, Sri Lanka"],
     },
     {
       icon: <Clock size={24} />,
@@ -294,11 +294,25 @@ export default function Contact() {
                       <h3 className="font-semibold text-gray-900 mb-2">
                         {info.title}
                       </h3>
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600">
-                          {detail}
-                        </p>
-                      ))}
+                      {info.details.map((detail, idx) => {
+                        let href = "";
+                        if (info.title === "Phone") href = `tel:${detail.replace(/\s+/g, "")}`;
+                        if (info.title === "Email") href = `mailto:${detail}`;
+
+                        return href ? (
+                          <a
+                            key={idx}
+                            href={href}
+                            className="block text-gray-600 hover:text-[#e8272c] transition-colors"
+                          >
+                            {detail}
+                          </a>
+                        ) : (
+                          <p key={idx} className="text-gray-600">
+                            {detail}
+                          </p>
+                        );
+                      })}
                     </div>
                   </motion.div>
                 ))}
@@ -321,7 +335,7 @@ export default function Contact() {
                       Interactive map would go here
                     </p>
                     <p className="text-sm text-gray-500 mt-1">
-                      123 Tech Street, Silicon Valley, CA 94025
+                      Matara, Sri Lanka
                     </p>
                   </div>
                 </div>

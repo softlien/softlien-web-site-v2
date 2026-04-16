@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "motion/react";
-import Link from "next/link";
+// import Link from "next/link";
 import {
   Target,
   Eye,
   Users,
   TrendingUp,
   Heart,
-  ArrowRight,
+  //ArrowRight,
 } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { CTASection } from "@/components/CTASection";
 
 export default function About() {
   const values = [
@@ -40,40 +41,39 @@ export default function About() {
     },
   ];
 
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO & Founder",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Michael Chen",
-      role: "CTO",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Head of Design",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-    },
-    {
-      name: "David Park",
-      role: "Lead Developer",
-      image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
-    },
-  ];
+  // const team = [
+  //   {
+  //     name: "Sarah Johnson",
+  //     role: "CEO & Founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "Michael Chen",
+  //     role: "CTO",
+  //     image:
+  //       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "Emily Rodriguez",
+  //     role: "Head of Design",
+  //     image:
+  //       "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+  //   },
+  //   {
+  //     name: "David Park",
+  //     role: "Lead Developer",
+  //     image:
+  //       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+  //   },
+  // ];
 
   const achievements = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "200+", label: "Happy Clients" },
-    { number: "50+", label: "Team Members" },
-    { number: "15+", label: "Years Experience" },
-    { number: "25+", label: "Industry Awards" },
-    { number: "98%", label: "Client Satisfaction" },
+    { number: "30+", label: "Projects Completed" },
+    { number: "15+", label: "Happy Clients" },
+    { number: "6+", label: "Team Members" },
+    { number: "3+", label: "Years Experience" },
+    { number: "100%", label: "Client Satisfaction" },
   ];
 
   return (
@@ -87,7 +87,7 @@ export default function About() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About Softlien
+              About SoftLien
             </h1>
             <p className="text-xl text-gray-200">
               Empowering businesses through innovative software solutions since
@@ -110,7 +110,7 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-4">
-                Founded in 2011, Softlien began with a simple mission: to help
+                Founded in 2011, SoftLien began with a simple mission: to help
                 businesses leverage technology to achieve their goals. What
                 started as a small team of passionate developers has grown into
                 a full-service software development company.
@@ -312,30 +312,11 @@ export default function About() {
         </div>
       </section> */}
 
-      <section className="py-20 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Join Us on Our Journey
-            </h2>
-            <p className="text-xl text-gray-200 mb-8">
-              Let&apos;s work together to create something amazing
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-[#e8272c] rounded-full font-semibold hover:shadow-2xl transition-all transform hover:scale-105"
-            >
-              Get In Touch
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection
+        headline="Join Us on Our Journey"
+        description="Let's work together to create something amazing"
+        ctaText="Get In Touch"
+      />
     </div>
   );
 }

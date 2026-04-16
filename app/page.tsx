@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,12 +12,49 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
-import { HeroMeshBackground } from "@/components/HeroMeshBackground";
+import { TechParticles } from "@/components/TechParticles";
 import { Tilt } from "@/components/Tilt";
+import { CTASection } from "@/components/CTASection";
 import { SectionMeshBackdrop } from "@/components/SectionMeshBackdrop";
-import { useState, useEffect } from "react";
 import { Star, MessageSquareQuote } from "lucide-react";
 import { ProjectFeedback } from "@/lib/types";
+
+function AnimatedCounter({ value, suffix }: { value: number; suffix?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 2000;
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.round(current));
+        }
+      }, duration / steps);
+      return () => clearInterval(timer);
+    }
+  }, [isInView, value]);
+
+  return (
+    <motion.span
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.2 }}
+    >
+      {count}
+      {suffix}
+    </motion.span>
+  );
+}
 
 export default function Home() {
   const [feedbacks, setFeedbacks] = useState<ProjectFeedback[]>([]);
@@ -61,10 +99,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Delivered" },
-    { number: "200+", label: "Happy Clients" },
-    { number: "50+", label: "Team Members" },
-    { number: "15+", label: "Years Experience" },
+    { value: 30, suffix: "+", label: "Projects Delivered" },
+    { value: 15, suffix: "+", label: "Happy Clients" },
+    { value: 6, suffix: "+", label: "Team Members" },
+    { value: 3, suffix: "+", label: "Years Experience" },
   ];
 
   const features = [
@@ -79,17 +117,9 @@ export default function Home() {
   return (
     <div className="bg-white">
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c]">
-          <div className="absolute inset-0 opacity-20">
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc3MTIzODYwN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Technology background"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000] via-[#7a0000] to-[#e8272c]" />
 
-        <HeroMeshBackground className="absolute inset-0 pointer-events-none opacity-70 hidden md:block" />
+        <TechParticles className="absolute inset-0 opacity-60 hidden md:block" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -110,7 +140,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/contact"
+                  href="/proposal"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#e8272c] rounded-full hover:shadow-2xl transition-all transform hover:scale-105"
                 >
                   Get Started
@@ -118,7 +148,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/20 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-3 border-white hover:bg-white/20 transition-all"
                 >
                   Our Services
                 </Link>
@@ -134,8 +164,10 @@ export default function Home() {
               <Tilt className="relative">
                 <div className="absolute -inset-4 bg-[#e8272c] rounded-2xl blur-2xl opacity-30" />
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1765561667528-28e39c6174dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NzEyNTIwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/Hero/hero.jpg"
                   alt="Software development"
+                  width={1080}
+                  height={720}
                   className="relative rounded-2xl shadow-2xl"
                 />
               </Tilt>
@@ -151,19 +183,15 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
                 <div className="text-4xl md:text-5xl font-bold text-[#e8272c] mb-2">
-                  {stat.number}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -305,7 +333,7 @@ export default function Home() {
               >
                 Projects
               </Link>{" "}
-              page; only published testimonials appear here.
+              page, only published testimonials appear here.
             </p>
           </motion.div>
 
@@ -370,31 +398,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-gray-200 mb-8">
-              Let&apos;s discuss how we can help transform your ideas into
-              reality
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-[#e8272c] rounded-full font-semibold hover:shadow-2xl transition-all transform hover:scale-105"
-            >
-              Contact Us Today
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection
+        headline="Ready to Start Your Project?"
+        description="Let's discuss how we can help transform your ideas into reality"
+        ctaText="Contact Us Today"
+      />
     </div>
   );
 }
