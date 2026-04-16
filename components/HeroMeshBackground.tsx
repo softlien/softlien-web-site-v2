@@ -79,7 +79,7 @@ function MeshPlane() {
       }}
     >
       <MeshDistortMaterial
-        color="#ff2a2f"
+        color="#b74343"
         roughness={0.35}
         metalness={0.25}
         distort={0.35}

@@ -148,7 +148,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/contact"
+                  href="/proposal"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#e8272c] rounded-full hover:shadow-2xl transition-all transform hover:scale-105"
                 >
                   Get Started
@@ -156,7 +156,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/20 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white rounded-full border-2 border-white/20 hover:bg-white/20 transition-all"
                 >
                   Our Services
                 </Link>
