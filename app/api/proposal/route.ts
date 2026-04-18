@@ -9,7 +9,7 @@ const COLLECTION_NAME = "proposals";
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
-    
+
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const company = formData.get("company") as string;
@@ -58,10 +58,10 @@ export async function POST(request: Request) {
       status: "pending",
     };
 
-    const ref = await addDoc(collection(db, COLLECTION_NAME), doc);
+    const docRef = await addDoc(collection(db, COLLECTION_NAME), doc);
 
     return NextResponse.json(
-      { success: true, id: ref.id },
+      { success: true, id: docRef.id },
       { status: 201 }
     );
   } catch (err) {

@@ -76,7 +76,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/proposal"
               className="px-6 py-2.5 bg-[#e8272c] text-white rounded-full hover:shadow-lg hover:bg-[#d01f24] transition-all transform hover:scale-105"
             >
               Get Started
