@@ -4,11 +4,11 @@ import { motion } from "motion/react";
 import { useState, useRef } from "react";
 import { Briefcase, Users, Target, Rocket, ArrowDown } from "lucide-react";
 import { HeroMeshBackground } from "@/components/HeroMeshBackground";
-import { VacancyCard } from "@/components/VacancyCard";
-import { CareerApplicationForm } from "@/components/CareerApplicationForm";
+// import { VacancyCard } from "@/components/VacancyCard";
+// import { CareerApplicationForm } from "@/components/CareerApplicationForm";
 import { CTASection } from "@/components/CTASection";
 
-const VACANCIES = [];
+// const VACANCIES = [];
 // const VACANCIES = [
 //   {
 //     title: "Senior Full Stack Developer",
@@ -41,13 +41,15 @@ const VACANCIES = [];
 // ];
 
 export default function Careers() {
-  const [selectedPosition, setSelectedPosition] = useState("");
+  // const [selectedPosition, setSelectedPosition] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
 
+  /*
   const scrollToApply = (position: string) => {
     setSelectedPosition(position);
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  */
 
   const benefits = [
     {
@@ -89,7 +91,7 @@ export default function Careers() {
               </span>
             </h1>
             <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
-              Help us build the next generation of digital products. We're always looking for talented individuals who are passionate about technology and innovation.
+              Help us build the next generation of digital products. We&apos;re always looking for talented individuals who are passionate about technology and innovation.
             </p>
             <button
               onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
@@ -131,7 +133,7 @@ export default function Careers() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center lg:text-left">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Open Vacancies</h2>
-            <p className="text-xl text-gray-600">We're always looking for great talent. Send us your CV manually and we'll keep you in mind for future openings.</p>
+            <p className="text-xl text-gray-600">We&apos;re always looking for great talent. Send us your CV manually and we&apos;ll keep you in mind for future openings.</p>
           </div>
 
           {/* <div className="space-y-8">

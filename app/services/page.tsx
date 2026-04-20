@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Code,
   Smartphone,
@@ -297,11 +298,12 @@ export default function Services() {
                 whileHover={{ y: -5 }}
                 className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(232,39,44,0.15)] transition-all flex flex-col items-center justify-center border border-gray-50 group min-w-[160px] md:min-w-[180px]"
               >
-                <div className="w-14 h-14 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <img
+                <div className="w-14 h-14 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
+                  <Image
                     src={tech.image}
                     alt={`${tech.name} logo`}
-                    className="max-w-full max-h-full object-contain drop-shadow-sm"
+                    fill
+                    className="object-contain drop-shadow-sm"
                   />
                 </div>
                 <p className="text-center font-bold text-gray-800 text-base group-hover:text-[#e8272c] transition-colors">

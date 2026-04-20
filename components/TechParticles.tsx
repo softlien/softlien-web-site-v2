@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useMemo } from "react";
 
 interface TechParticlesProps {
   className?: string;
@@ -36,7 +36,7 @@ export function TechParticles({
   });
   const animationRef = useRef<number>(0);
 
-  const colors = [
+  const colors = useMemo(() => [
     "rgba(255, 255, 255,", // White
     "rgba(232, 39, 44,", // Brand red
     "rgba(255, 102, 102,", // Light red
@@ -45,7 +45,7 @@ export function TechParticles({
     "rgba(255, 255, 255,", // White
     "rgba(232, 39, 44,", // Brand red
     "rgba(255, 255, 255,", // White
-  ];
+  ], []);
 
   const initParticles = useCallback(() => {
     const canvas = canvasRef.current;
@@ -209,11 +209,11 @@ export function TechParticles({
           }
         }
       }
-  }, [connectionDistance, mouseRadius]);
+  }, [connectionDistance, mouseRadius, mouseStrength]);
 
-  const animate = useCallback(() => {
+  const animate = useCallback(function loop() {
     draw();
-    animationRef.current = requestAnimationFrame(animate);
+    animationRef.current = requestAnimationFrame(loop);
   }, [draw]);
 
   useEffect(() => {
