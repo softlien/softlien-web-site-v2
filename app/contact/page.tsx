@@ -86,7 +86,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#8b0000] via-[#c00] to-[#e8272c] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

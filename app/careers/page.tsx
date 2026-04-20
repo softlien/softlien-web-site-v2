@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Briefcase, Users, Target, Rocket, ArrowDown } from "lucide-react";
 import { HeroMeshBackground } from "@/components/HeroMeshBackground";
 // import { VacancyCard } from "@/components/VacancyCard";
