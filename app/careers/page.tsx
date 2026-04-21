@@ -1,55 +1,30 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Briefcase, Users, Target, Rocket, ArrowDown } from "lucide-react";
 import { HeroMeshBackground } from "@/components/HeroMeshBackground";
-// import { VacancyCard } from "@/components/VacancyCard";
-// import { CareerApplicationForm } from "@/components/CareerApplicationForm";
-import { CTASection } from "@/components/CTASection";
+import { VacancyCard } from "@/components/VacancyCard";
+import { CareerApplicationForm } from "@/components/CareerApplicationForm";
 
-// const VACANCIES = [];
-// const VACANCIES = [
-//   {
-//     title: "Senior Full Stack Developer",
-//     department: "Engineering",
-//     location: "Remote / Colombo",
-//     type: "Full-time",
-//     description: "We're looking for an experienced Full Stack Developer to lead the development of our core SaaS products using Next.js, Node.js, and Firebase.",
-//   },
-//   {
-//     title: "UI/UX Designer",
-//     department: "Design",
-//     location: "Matara / Hybrid",
-//     type: "Full-time",
-//     description: "Join our design team to create beautiful, intuitive user experiences for our international clients. Experience with Figma and design systems is required.",
-//   },
-//   {
-//     title: "Project Manager",
-//     department: "Management",
-//     location: "Colombo / Hybrid",
-//     type: "Full-time",
-//     description: "Lead complex software projects from discovery to launch. You'll work closely with developers and clients to ensure timely and high-quality delivery.",
-//   },
-//   {
-//     title: "QA Engineer",
-//     department: "Quality Assurance",
-//     location: "Remote",
-//     type: "Contract",
-//     description: "Help us maintain our high standard of quality by implementing automated and manual testing processes for our web and mobile applications.",
-//   },
-// ];
+type Vacancy = {
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+};
+
+const VACANCIES: Vacancy[] = [];
 
 export default function Careers() {
-  // const [selectedPosition, setSelectedPosition] = useState("");
+  const [selectedPosition, setSelectedPosition] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
 
-  /*
   const scrollToApply = (position: string) => {
     setSelectedPosition(position);
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-  */
 
   const benefits = [
     {
@@ -136,15 +111,34 @@ export default function Careers() {
             <p className="text-xl text-gray-600">We&apos;re always looking for great talent. Send us your CV manually and we&apos;ll keep you in mind for future openings.</p>
           </div>
 
-          {/* <div className="space-y-8">
-            {VACANCIES.map((vacancy, index) => (
-              <VacancyCard
-                key={index}
-                {...vacancy}
-                onApply={() => scrollToApply(vacancy.title)}
-              />
-            ))}
-          </div> */}
+          {VACANCIES.length > 0 ? (
+            <div className="space-y-8">
+              {VACANCIES.map((vacancy, index) => (
+                <VacancyCard
+                  key={index}
+                  {...vacancy}
+                  onApply={() => scrollToApply(vacancy.title)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center text-[#e8272c] mx-auto mb-6">
+                <Briefcase size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">No Open Roles Right Now</h3>
+              <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+                We're not actively hiring for specific positions at the moment, but we're always looking for great talent. Send us your CV manually and we'll keep you in mind for future openings.
+              </p>
+              <button
+                onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="inline-flex items-center px-8 py-3 bg-[#e8272c] text-white rounded-full font-bold hover:bg-[#d01f24] transition-all"
+              >
+                Drop Your CV
+                <ArrowDown className="ml-2" size={20} />
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -163,19 +157,18 @@ export default function Careers() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Apply Now</h2>
             <p className="text-xl text-gray-600">Send us your CV and start your journey with Softlien</p>
           </div>
-
-          {/* <CareerApplicationForm
+          <CareerApplicationForm
             initialPosition={selectedPosition}
-            positions={VACANCIES.map(v => v.title)}
-          /> */}
+            positions={VACANCIES.length > 0 ? VACANCIES.map(v => v.title) : ["General Application / Spontaneous"]}
+          />
         </div>
       </section>
 
-      <CTASection
+      {/*<CTASection
         headline="Don't see a matching role?"
         description="We're always looking for great talent. Send us your CV manually and we'll keep you in mind for future openings."
         ctaText="Drop Your CV"
-      />
+      />*/}
     </div>
   );
 }
